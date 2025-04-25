@@ -10,11 +10,13 @@ const app = express();
 
 const port = process.env.PORT || 4000;
 connectDB();
+const allowedOrigins = ["http://localhost:5173"];
 app.use(express.json()); //all the request will be passed using json
 app.use(cookieParser());
 app.use(
   cors({
     // ya jo frontend ka origin hai
+    origin: allowedOrigins,
     credentials: true,
   })
 );
